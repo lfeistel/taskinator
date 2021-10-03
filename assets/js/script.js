@@ -1,9 +1,14 @@
 var createTaskHandler = function(event) {
   event.preventDefault();
-  
+ 
+  var taskNameInput = document.querySelector("input[name='task-name']");    
+  var taskTypeInput = document.querySelector("select[name='task-type']");
   var listItemEl = document.createElement("li");
+  var taskInfoEl = document.createElement("div");
+  taskInfoEl.className = "task-info";
   listItemEl.className = "task-item";
-  listItemEl.textContent = "This is a new task.";
+  taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskNameInput.value + "</h3><span class='task-type'>" + taskTypeInput.value + "</span>";
+  listItemEl.appendChild(taskInfoEl);
   tasksToDoEl.appendChild(listItemEl);
 };
 
