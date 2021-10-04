@@ -5,7 +5,13 @@ var taskFormHandler = function(event) {
     name : document.querySelector("input[name='task-name']").value,
     type : document.querySelector("select[name='task-type']").value
   };
-  createTaskEl(taskDataObj);
+  
+  if (!taskDataObj.name || !taskDataObj.type) {
+    alert("You need to fill out the task form!");
+    return false;
+  }
+  createTaskEl(taskDataObj);  
+  formEl.reset();
 };
 
 var createTaskEl = function(taskDataObj) {
